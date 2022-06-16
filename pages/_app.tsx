@@ -1,8 +1,15 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { ChakraProvider } from '@chakra-ui/react';
+import { PokemonsProvider } from '../contexts/PokemonsProvider';
+import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <PokemonsProvider>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </PokemonsProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
